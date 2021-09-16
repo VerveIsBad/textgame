@@ -6,3 +6,4 @@ class Tile:
             self.interactable = True
         else:
             self.interactable = False
+
