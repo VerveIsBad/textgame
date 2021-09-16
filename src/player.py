@@ -1,11 +1,12 @@
 class Player:
-    def __init__(self):
-        self.hp_max = 100
-        self.hp = self.hp_max
-        self.attack = 1
-        self.defense = 1
+    def __init__(self, hp, attack, defense):
+        self.hp = hp
+        self.attack = attack
+        self.defense = defense
+        self.hp_max = None
         self.held_item = None
-        self.armor = None
+
+    
 
 
 """
