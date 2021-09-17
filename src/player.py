@@ -8,6 +8,12 @@ class Player:
         self.pos = {'x': 1, 'y': 1}
 
     def move(self, d, world):
+        '''Moves the player in a specified direction
+
+        Arguments:
+            d (str): The direction to move in, must be 'up', 'down', 'left', or 'right'
+            world (World): the world (nope, still not a JoJo reference, defintely not.)
+        '''
         if d == 'up':
             world.move_tile(self.pos, {'x': self.pos['x'], 'y': self.pos['y'] - 1})
             self.pos['y'] -= 1

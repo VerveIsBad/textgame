@@ -7,5 +7,11 @@ class Tile:
             self.interactable = True
 
     def interact(self, world, player):
+        '''Interacts with the tile
+
+        Arguments:
+            world (World): the world (nope... definitely NOT a JoJo reference)
+            player (Player): the player
+        '''
         pass
 
