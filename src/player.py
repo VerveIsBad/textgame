@@ -1,9 +1,12 @@
 import utils
-
+import random
+import enemy
+import world
 
 class Player:
-    def __init__(self, hp, attack, defense):
+    def __init__(self, hp, max_hp, attack, defense):
         self.hp = hp
+        self.max_hp = 100
         self.attack = attack
         self.defense = defense
         self.held_item = None
@@ -31,23 +34,24 @@ class Player:
             self.pos['x'] += 1
 
     def fight_with(self, enemy):
-        '''Fights with a given enemy
+        '''
+        Fights with a given enemy
         
         Arguments:
             enemy (Enemy): The enemy to fight
+        note: most of the enemy combat code is in enemy.py in the function
+        interact()
         '''
-        print('(fight) Type \'help\' for fight help')
 
-        while self.hp >= 0 or enemy.hp >= 0:
-            utils.clear()
+        print(f'{enemy.name} attacked!\n{enemy.attack - self.defense} damage taken!\n')
+        self.hp -= (enemy.attack - self.defense)
 
-            print(f'(fight) HP: {self.hp}\n(fight) Enemy HP: {enemy.hp}')
-            action = input('(fight) > ')
-            
-            if action == 'fight':
-                # do fight things
-                pass
-            elif action == 'help':
-                print('--Commands (Fight)--\nfight - Fights the enemy\nhelp - Get help')
-            
-            input('(fight) Press enter to continue.')
+    
+    
+    def forceStop(self):
+        quit()
+             
+
+
+
+

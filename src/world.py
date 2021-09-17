@@ -2,7 +2,6 @@ import random
 import tiles
 import enemies
 
-
 class World:
     def __init__(self, player):
         self.grid = []
@@ -55,5 +54,7 @@ class World:
         self.grid[at['y']][at['x']] = tiles.air
         self.grid[to['y']][to['x']] = tile_to_move
 
-        if tile_to.interactable:
+        if tile_to.is_enemy:
+            tile_to.interact(self, self.player, 'fighting')
+        else:
             tile_to.interact(self, self.player)

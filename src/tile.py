@@ -1,6 +1,7 @@
 class Tile:
     def __init__(self, graphic, interactable: bool = None):
         self.graphic = graphic
+        self.is_enemy = False 
 
         self.interactable = False
         if interactable is not None:

@@ -5,7 +5,7 @@ import utils
 
 
 # variables
-player = Player(100, 1, 1)
+player = Player(100, 100, 10, 0) # Player(hp, max_hp, attack, defense)
 world = World(player)
 print('Type \'help\' for help.')
 
@@ -38,13 +38,14 @@ def execute_command(command):
         exit()
     elif command == 'quit':
         print('--Quiting')
-        quit()
+        player.forceStop()
 
 
 
 # mainloop
 def main_loop():
-    '''Looooooooooooooooooooooooooop
+    '''
+    Looooooooooooooooooooooooooop
     '''
     while True:
         utils.clear()
