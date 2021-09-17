@@ -1,5 +1,6 @@
 import random
 import tiles
+import enemies
 
 
 class World:
@@ -19,11 +20,13 @@ class World:
                     continue
 
                 # generate the tile to add and add it
-                chance = random.randint(0, 7)
+                chance = random.randint(0, 8)
                 if chance <= 5:
                     self.grid[y].append(tiles.air)
                 elif chance == 6:
                     self.grid[y].append(tiles.chest)
+                elif chance == 7:
+                    self.grid[y].append(enemies.get_random_enemy())
                 else:
                     self.grid[y].append(tiles.flag)
                 del chance
@@ -51,7 +54,6 @@ class World:
         tile_to = self.grid[to['y']][to['x']]
         self.grid[at['y']][at['x']] = tiles.air
         self.grid[to['y']][to['x']] = tile_to_move
-        self.print_grid()
 
         if tile_to.interactable:
             tile_to.interact(self, self.player)

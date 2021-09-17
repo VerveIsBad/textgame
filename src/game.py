@@ -1,6 +1,7 @@
 from player import Player
 from enemy import Enemy
 from world import World
+import utils
 
 
 # variables
@@ -20,6 +21,7 @@ def execute_command(command):
 
     if command == 'stats':
         print(f'--Player Stats--\nHP: {player.hp}\nAttack: {player.attack}\nDefense: {player.defense}')
+        input('Press enter to continue.')
     elif command == 'w':
         player.move('up', world)
     elif command == 's':
@@ -30,6 +32,7 @@ def execute_command(command):
         player.move('right', world)
     elif command == 'help':
         print('--Commands--\nstats - Prints player stats\nw - Moves the player up\ns - Moves the player down\na - Moves the player left\nd - Moves the player right\nhelp - Prints help')
+        input('Press enter to continue.')
     elif command == 'exit':
         print('--Exiting--')
         exit()
@@ -43,8 +46,9 @@ def execute_command(command):
 def main_loop():
     '''Looooooooooooooooooooooooooop
     '''
-    world.print_grid()
     while True:
+        utils.clear()
+        world.print_grid()
         action = input('> ')
         execute_command(action)
 

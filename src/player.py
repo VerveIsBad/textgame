@@ -1,3 +1,6 @@
+import utils
+
+
 class Player:
     def __init__(self, hp, attack, defense):
         self.hp = hp
@@ -27,3 +30,24 @@ class Player:
             world.move_tile(self.pos, {'x': self.pos['x'] + 1, 'y': self.pos['y']})
             self.pos['x'] += 1
 
+    def fight_with(self, enemy):
+        '''Fights with a given enemy
+        
+        Arguments:
+            enemy (Enemy): The enemy to fight
+        '''
+        print('(fight) Type \'help\' for fight help')
+
+        while self.hp >= 0 or enemy.hp >= 0:
+            utils.clear()
+
+            print(f'(fight) HP: {self.hp}\n(fight) Enemy HP: {enemy.hp}')
+            action = input('(fight) > ')
+            
+            if action == 'fight':
+                # do fight things
+                pass
+            elif action == 'help':
+                print('--Commands (Fight)--\nfight - Fights the enemy\nhelp - Get help')
+            
+            input('(fight) Press enter to continue.')
